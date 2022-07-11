@@ -1,0 +1,57 @@
+=> Reading the files
+    => r -> Open file for reading
+    => r+ -> Open file for reading and writing
+    => rs  -> Open file for reading in sync mode
+    => rs+ ->  Open file for reading and writing, asking the OS to open it sync
+
+=> writing the files
+
+    => w ->  Open file for writing. The file is created(if it not exits)
+    => wx -> Like w but fails if the path exits
+    => w+ -> Open file for reading and writing
+    => wx+ -> Like w+ but fails if the path exits
+
+=> Append the files
+
+    => a -> open for appending
+    => ax -> Like 'a' but fails if the path exists
+    => a+ -> Open file for reading and appending
+    => ax+ -> Like 'a+' but fails if the path exists
+
+
+fs.stat -> Return the information about file and directory
+            -> isFile() -> returns true; if it is a file
+            -> isDirectory() -> returns true; if it is a directory
+
+fs.read() -> : The fs.read() method is used to read the file specified by fd.
+
+                This method reads the entire file into the buffer.
+
+                -> fd: This is the file descriptor returned by fs.open() method.
+                -> buffer: This is the buffer that the data will be written to.
+                -> offset: This is the offset in the buffer to start writing at.
+                -> length: This is an integer specifying the number of bytes to read.
+                -> position: This is an integer specifying where to begin reading from in the file. If the position is null, data will be read from the current file position.
+                -> callback: It is a callback function that is called after reading of the file. It takes two parameters:
+                        err: If any error occurs.
+                        data: Contents of the file.
+
+fs.readFile() :-> It is an inbuilt method which is used to read the file. This method read the entire file into buffer.
+
+                    -> We do not have to open or close the file while in read we have to open and close the file
+
+                    --> filename: It holds the name of the file to read or the entire path if stored at other location.
+                    --> encoding: It holds the encoding of file. Its default value is ‘utf8’.
+                    --> callback_function: It is a callback function that is called after reading of file. It takes two parameters:
+                            err: If any error occurred.
+                        data: Contents of the file.
+
+fs.writeFile() :-> is used to asynchronously write the specified data to a file.
+                    path: It is a string, Buffer, URL, or file description integer that denotes the path of the file where it has to be written
+                    data: It is a string, Buffer, TypedArray, or DataView that will be written to the file.
+                    options: It is a string or object that can be used to specify optional parameters that will affect the output. It has three optional parameters:
+                            encoding: It is a string value that specifies the encoding of the file. The default value is ‘utf8’.
+                            mode: It is an integer value that specifies the file mode. The default value is 0o666.
+                            flag: It is a string value that specifies the flag used while writing to the file. The default value is ‘w’.
+                    callback: It is the function that would be called when the method is executed.
+                            err: It is an error that would be thrown if the operation fails.
